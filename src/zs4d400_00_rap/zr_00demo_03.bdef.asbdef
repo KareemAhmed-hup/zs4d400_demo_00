@@ -1,0 +1,51 @@
+managed implementation in class ZBP_R_00DEMO_03 unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_00DEMO_03 alias demo
+persistent table Z00_DEMO_03
+extensible
+draft table Z00DEMO_03_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( mandatory : create )
+   ID;
+
+  field ( readonly )
+   CreatedBy,
+   CreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( readonly : update )
+   ID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for Z00_DEMO_03 corresponding extensible
+  {
+    ID = ID;
+    Name = NAME;
+    FirstName = FIRST_NAME;
+    City = CITY;
+    PostCode = POST_CODE;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}

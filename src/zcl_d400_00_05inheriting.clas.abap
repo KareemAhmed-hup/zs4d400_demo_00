@@ -1,0 +1,24 @@
+CLASS zcl_d400_00_05inheriting DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC INHERITING FROM zcl_d400_00_04data .
+
+  PUBLIC SECTION.
+    METHODS demo_01.
+
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zcl_d400_00_05inheriting IMPLEMENTATION.
+
+
+
+  METHOD demo_01.
+    mv_demo_01 = 'ABCD'.
+*    mv_demo_02 = 'ABCD'.
+  ENDMETHOD.
+
+ENDCLASS.
